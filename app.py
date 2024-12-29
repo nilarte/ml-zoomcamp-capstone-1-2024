@@ -7,7 +7,7 @@ with open(model_file, 'rb') as f_in:
     dv, model = pickle.load(f_in)
 
 # Define the prediction function
-def predict_employee_performance(education, joiningyear, city, paymenttier, age, gender, everbenched, experienceincurrentdomain):
+def predict_employee_attrition(education, joiningyear, city, paymenttier, age, gender, everbenched, experienceincurrentdomain):
     # Create input dictionary
     employee_data = {
         "education": education,
@@ -32,12 +32,12 @@ def predict_employee_performance(education, joiningyear, city, paymenttier, age,
     y_pred = model.predict_proba(X)[0, 1]
 
     return {
-        "Performance Probability": round(y_pred, 2),
+        "Attrition Probability": round(y_pred, 2),
     }
 
 # Gradio interface
 interface = gr.Interface(
-    fn=predict_employee_performance,
+    fn=predict_employee_attrition,
     inputs=[
         gr.Dropdown(choices=["Bachelors", "Masters", "PhD"], label="Education"),
         gr.Number(label="Joining Year"),
@@ -51,8 +51,8 @@ interface = gr.Interface(
     outputs=[
         gr.Label(label="Prediction Results"),
     ],
-    title="Employee Performance Prediction",
-    description="Predict the likelihood of high performance based on employee data.",
+    title="Employee Attrition Prediction",
+    description="Predict the likelihood of attrition (employee leaving the org) based on employee data.",
 )
 
 # Launch the app
