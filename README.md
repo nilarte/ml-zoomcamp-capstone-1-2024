@@ -45,22 +45,22 @@ Turn categorical data into binary vector
 ### 2.2 Simple Logistic regression
 Train a simple logistic regression model.
 
-### 2.2 Cross-Validation with kfold
+### 2.3 Cross-Validation with kfold
 Train same model with different values of kfold.
 
 Check AUC score for validation data.
-### 2.3 Random forest regressor
+### 2.4 Random forest regressor
 Train random regression model.
 Try different values of max_depth, n_estimators and min_samples_leaf.
 Select values giving the best AUC score via graph.
 
 ![rf-graph.png](./rf-graph.png)
 
-### 2.4 XGBoost
+### 2.5 XGBoost
 Train random regression model.
 Try different values of max_depth, eta and min_child_weight.
 Select values giving the best AUC score.
 
-### 2.5 Selecting the best model
+### 2.6 Selecting the best model
 Random forest model is giving slightly better results.
 We also checked with test data.
