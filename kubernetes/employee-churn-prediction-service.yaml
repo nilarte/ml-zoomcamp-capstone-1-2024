@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-churn-prediction
+  labels:
+    app: employee-churn-prediction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee-churn-prediction
+  template:
+    metadata:
+      labels:
+        app: employee-churn-prediction
+    spec:
+      containers:
+      - name: employee-churn-prediction
+        image: ghcr.io/nilarte/employee_churn_prediction_ui_support
+        ports:
+        - containerPort: 7860
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: employee-churn-prediction-service
+# spec:
+#   type: NodePort
+#   selector:
+#     app: employee-churn-prediction
+#   ports:
+#   - protocol: TCP
+#     port: 7860       # The port accessible inside the cluster
+#     targetPort: 7860 # The port your app is listening to inside the container
+#     nodePort: 30860  # The port exposed on the node (range: 30000–32767)
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: employee-churn-prediction-service
+spec:
+  type: LoadBalancer        # Change type to LoadBalancer
+  selector:
+    app: employee-churn-prediction
+  ports:
+  - protocol: TCP
+    port: 7860             # The port accessible inside the cluster
+    targetPort: 7860       # The port your app is listening to inside the container
+    nodePort: 30860        # You can leave this out or keep it for reference, but LoadBalancer will auto-assign an external IP
