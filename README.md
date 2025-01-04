@@ -119,17 +119,6 @@ Pull docker container from public docker image at github registry
 docker pull ghcr.io/nilarte/employee_churn_prediction
 ```
 
-Note: 
-You will need docker login to ghcr.io
-
-Please give your github username and personal access token to login
-
-
-ex:
-```bash
-docker login ghcr.io -u Your_Username
-```
-
 Or simply build local image using Dockerfile
 ```bash
 docker build -t employee_churn_prediction .
@@ -160,3 +149,15 @@ Connect to webservice here: https://huggingface.co/spaces/nilart/ml-zoomcamp-cap
 Enter employee data and observe attrition probability.
 
 ![hugging-face.png](./huggingface.png)
+
+
+## 8. Kubernetes deployment
+We have also deployed webservice on GKE Google Kubernetes Engine Cluster.
+
+UI is exactly same as huggingface in above section.
+
+Connect to webservice here: http://35.200.229.49:7860/
+
+Here is the kubernetes deployment and service file: [employee-churn-prediction-service.yaml](./kubernetes/employee-churn-prediction-service.yaml)
+
+
