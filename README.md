@@ -158,6 +158,9 @@ UI is exactly same as huggingface in above section.
 
 Connect to webservice here: http://35.200.229.49:7860/
 
+Note: 
+Somehow I could not open above url in firefox. If you also face simillar issue in firefox please try other browser like chrome etc.
+
 Here is the kubernetes deployment and service file: [employee-churn-prediction-service.yaml](./kubernetes/employee-churn-prediction-service.yaml)
 
 
