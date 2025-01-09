@@ -163,4 +163,5 @@ Somehow I could not open above url in firefox. If you also face simillar issue i
 
 Here is the kubernetes deployment and service file: [employee-churn-prediction-service.yaml](./kubernetes/employee-churn-prediction-service.yaml)
 
-
+## 9. Demo
+Short demo can be downloaded and watched: [demo.mp4](./demo.mp4)
